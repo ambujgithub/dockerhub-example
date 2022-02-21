@@ -26,10 +26,10 @@ pipeline {
   post {
     always {
 	script {
-		if (getContext(hudson.FilePath)) {
+      sh './jenkins/logout.sh'
+      if (getContext(hudson.FilePath)) {
                     deleteDir()
                 }
-      sh './jenkins/logout.sh'
     }
   }
   }
